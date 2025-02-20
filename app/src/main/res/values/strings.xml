@@ -3,4 +3,19 @@
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
     <string name="height">Altura</string>
+    <string name="age">Edad</string>
+    <string name="weight">Peso</string>
+    <string name="calculate">Calcular</string>
+    <string name="result">Resultado</string>
+    <string name="recalculate">Recalcular\n</string>
+    <string name="title_bajo_peso">Bajo Peso</string>
+    <string name="description_bajo_peso">asd</string>
+    <string name="title_peso_normal">Peso Saludable</string>
+    <string name="description_peso_normal">asdsssd.</string>
+    <string name="title_sobrepeso">Sobrepeso</string>
+    <string name="description_sobrepeso">sss</string>
+    <string name="title_obesidad">Obesidad</string>
+    <string name="description_obesidad">xxxxx</string>
+    <string name="error">Error</string>
+    <string name="description_error">llll.</string>
 </resources>

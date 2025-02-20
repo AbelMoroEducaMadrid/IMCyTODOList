@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.ventura.imcytodolist.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
