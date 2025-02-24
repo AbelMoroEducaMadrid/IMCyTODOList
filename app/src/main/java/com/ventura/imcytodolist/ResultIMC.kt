@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.ventura.imcytodolist.IMCCalculator.Companion.IMC_KEY
 import com.ventura.imcytodolist.databinding.ActivityResultImcBinding
-// import com.ventura.imcytodolist.IMCCalculator.Companion.IMC_KEY
 
 class ResultIMC : AppCompatActivity() {
     private lateinit var binding: ActivityResultImcBinding
@@ -23,17 +23,21 @@ class ResultIMC : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityResultImcBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_result_imc)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val result: Double = intent.extras?.getDouble("IMC_KEY") ?: -1.0
+        val result: Double? = intent.extras?.getDouble(IMC_KEY)
 
         initComponents()
-        initUI(result)
+        if (result != null) {
+            initUI(result)
+        }else {
+            initUI(0.0)
+        }
         initListeners()
     }
 
