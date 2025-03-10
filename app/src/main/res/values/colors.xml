@@ -35,16 +35,21 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_component">#1D1E33</color>
-    <color name="background_component_selected">#FF111328</color>
-    <color name="background_app">#0E0B20</color>
-    <color name="background_button">#EB1555</color>
-    <color name="title_text">#FF8D8E98</color>
-    <color name="background_fab">#FF6200EE</color>
-    <color name="peso_bajo">#FFEB3B</color>
-    <color name="peso_normal">#4CAF50</color>
-    <color name="peso_sobrepeso">#FF5722</color>
-    <color name="obesidad">#FF1100</color>
+    <color name="background">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_background_selected">#E0E0E0</color>
+    <color name="primary">#1976D2</color>
+
+    <color name="background_component">#E3F2FD</color> <!-- Azul claro para componentes -->
+    <color name="background_component_selected">#1976D2</color> <!-- Azul oscuro para componentes seleccionados -->
+    <color name="background_app">#FFFFFF</color> <!-- Fondo blanco para la aplicación -->
+    <color name="background_button">#2196F3</color> <!-- Azul intenso para botones -->
+    <color name="title_text">#212121</color> <!-- Gris oscuro para texto principal -->
+    <color name="background_fab">#1976D2</color> <!-- Azul oscuro para FAB -->
+    <color name="peso_bajo">#FFC107</color> <!-- Amarillo para peso bajo -->
+    <color name="peso_normal">#4CAF50</color> <!-- Verde para peso normal (se mantiene) -->
+    <color name="peso_sobrepeso">#FF9800</color> <!-- Naranja para sobrepeso -->
+    <color name="obesidad">#F44336</color> <!-- Rojo para obesidad (se mantiene) -->
 
     <color name="lista_background_card">#FF081A4A</color>
     <color name="lista_background_disabled">#787878</color>
