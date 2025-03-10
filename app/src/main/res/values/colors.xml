@@ -45,4 +45,17 @@
     <color name="peso_normal">#4CAF50</color>
     <color name="peso_sobrepeso">#FF5722</color>
     <color name="obesidad">#FF1100</color>
+
+    <color name="lista_background_card">#FF081A4A</color>
+    <color name="lista_background_disabled">#787878</color>
+    <color name="lista_background_lista_app">#FF2D4993</color>
+    <color name="lista_subtitle_text">#959595</color>
+    <color name="lista_accent">#E91E63</color>
+    <color name="lista_trabajo_category">#FF9800</color>
+    <color name="lista_personal_category">#00BCD4</color>
+    <color name="lista_otros_category">#4CAF50</color>
+    <color name="lista_estudio_category">#673AB7</color>
+    <color name="lista_hogar_category">#795548</color>
+    <color name="lista_salud_category">#8BC34A</color>
+
 </resources>

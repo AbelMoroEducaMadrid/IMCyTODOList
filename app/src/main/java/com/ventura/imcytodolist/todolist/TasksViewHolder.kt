@@ -1,0 +1,37 @@
+package com.ventura.imcytodolist.todolist
+
+import android.content.res.ColorStateList
+import android.graphics.Paint
+import android.view.View
+import android.widget.CheckBox
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.ventura.imcytodolist.R
+
+class TasksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private val tvTask: TextView = view.findViewById(R.id.tvTask)
+    private val cbTask: CheckBox = view.findViewById(R.id.cbTask)
+    fun render(task: Task) {
+        if (task.isSelected) {
+            tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        } else {
+            tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        }
+
+        cbTask.isChecked = task.isSelected
+        tvTask.text = task.name
+
+        val color = when (task.category) {
+            TaskCategory.Trabajo -> R.color.lista_trabajo_category
+            TaskCategory.Otros -> R.color.lista_otros_category
+            TaskCategory.Personal -> R.color.lista_personal_category
+            TaskCategory.Estudio -> R.color.lista_estudio_category
+            TaskCategory.Hogar -> R.color.lista_hogar_category
+            TaskCategory.Salud -> R.color.lista_salud_category
+        }
+        cbTask.buttonTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(cbTask.context, color)
+        )
+    }
+}

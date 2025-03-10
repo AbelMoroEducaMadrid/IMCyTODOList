@@ -1,4 +1,4 @@
-package com.ventura.imcytodolist
+package com.ventura.imcytodolist.imc
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.ventura.imcytodolist.IMCCalculator.Companion.IMC_KEY
+import com.ventura.imcytodolist.R
 import com.ventura.imcytodolist.databinding.ActivityResultImcBinding
 
 class ResultIMC : AppCompatActivity() {
@@ -30,7 +30,7 @@ class ResultIMC : AppCompatActivity() {
             insets
         }
 
-        val result: Double? = intent.extras?.getDouble(IMC_KEY)
+        val result: Double? = intent.extras?.getDouble("IMC_KEY")
 
         initComponents()
         if (result != null) {
@@ -86,6 +86,6 @@ class ResultIMC : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        btnRecalculate.setOnClickListener { onBackPressedDispatcher }
+        btnRecalculate.setOnClickListener { onBackPressed() }
     }
 }

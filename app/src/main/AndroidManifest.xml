@@ -13,13 +13,14 @@
         android:theme="@style/Theme.IMCyTODOList"
         tools:targetApi="31">
         <activity
-            android:name=".ResultIMC"
+            android:name=".imc.ResultIMC"
             android:exported="false" />
         <activity
-            android:name=".ToDoList"
-            android:exported="false" />
+            android:name=".todolist.ToDoList"
+            android:exported="false"
+            android:theme="@style/Theme.LISTApp" />
         <activity
-            android:name=".IMCCalculator"
+            android:name=".imc.IMCCalculator"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"

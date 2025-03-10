@@ -1,8 +1,7 @@
-package com.ventura.imcytodolist
+package com.ventura.imcytodolist.imc
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
+import com.ventura.imcytodolist.R
 import com.ventura.imcytodolist.databinding.ActivityImccalculatorBinding
 import java.text.DecimalFormat
 
@@ -82,7 +82,6 @@ class IMCCalculator : AppCompatActivity() {
             changeGender()
             setGenderColor()
         }
-
         rsHeight.addOnChangeListener { _, value, _ ->
             val df = DecimalFormat("#.##")
             currentHeight = df.format(value).toInt()
@@ -106,10 +105,8 @@ class IMCCalculator : AppCompatActivity() {
         }
         btnCalculate.setOnClickListener {
             val result = calculateIMC()
-            Log.d("RESULTADO", result.toString())
             navigateToResult(result)
         }
-
     }
 
     private fun calculateIMC(): Double {
@@ -153,11 +150,7 @@ class IMCCalculator : AppCompatActivity() {
 
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultIMC::class.java)
-        intent.putExtra(IMC_KEY, result)
+        intent.putExtra("IMC_KEY", result)
         startActivity(intent)
-    }
-
-    companion object {
-        const val IMC_KEY = "IMC_KEY"
     }
 }

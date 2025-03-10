@@ -18,4 +18,15 @@
     <string name="description_obesidad">xxxxx</string>
     <string name="error">Error</string>
     <string name="description_error">llll.</string>
+    <string name="lista_title">Prueba Listas</string>
+    <string name="lista_categories">Categorías:</string>
+    <string name="lista_tasks">Tareas:</string>
+    <string name="lista_dialog_add_task">Añade la tarea</string>
+    <string name="lista_dialog_category_trabajo">Trabajo</string>
+    <string name="lista_dialog_category_otros">Otros</string>
+    <string name="lista_dialog_category_personal">Personal</string>
+    <string name="lista_dialog_add_task_button">Crear tarea</string>
+    <string name="lista_dialog_category_estudio">Estudio</string>
+    <string name="lista_dialog_category_hogar">Hogar</string>
+    <string name="lista_dialog_category_salud">Salud</string>
 </resources>
