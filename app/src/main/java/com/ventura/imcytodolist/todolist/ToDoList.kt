@@ -29,9 +29,6 @@ class ToDoList : AppCompatActivity() {
     )
 
     private val tasks = mutableListOf(
-        Task("PruebaTrabajo", TaskCategory.Trabajo),
-        Task("PruebaPersonal", TaskCategory.Personal),
-        Task("PruebaOtros", TaskCategory.Otros),
         Task("Estudiar para el examen", TaskCategory.Estudio),
         Task("Limpiar la casa", TaskCategory.Hogar),
         Task("Hacer ejercicio", TaskCategory.Salud),

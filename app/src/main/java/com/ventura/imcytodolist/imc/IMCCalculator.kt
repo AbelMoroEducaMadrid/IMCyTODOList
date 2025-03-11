@@ -2,6 +2,7 @@ package com.ventura.imcytodolist.imc
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -37,40 +38,56 @@ class IMCCalculator : AppCompatActivity() {
     }
 
     private fun setupListeners() {
+        val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_anim)
+
         binding.viewMale.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             toggleGenderSelection()
             updateGenderColors()
         }
+
         binding.viewFemale.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             toggleGenderSelection()
             updateGenderColors()
         }
+
         binding.rsHeight.addOnChangeListener { _, value, _ ->
             val decimalFormat = DecimalFormat("#.##")
             currentHeight = decimalFormat.format(value).toInt()
             binding.tvHeight.text = "$currentHeight cm"
         }
+
         binding.btnPlusWeight.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             currentWeight += 1
             updateWeightDisplay()
         }
+
         binding.btnSubtractWeight.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             if (currentWeight > 1) {
                 currentWeight -= 1
                 updateWeightDisplay()
             }
         }
+
         binding.btnPlusAge.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             currentAge += 1
             updateAgeDisplay()
         }
+
         binding.btnSubtractAge.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             if (currentAge > 1) {
                 currentAge -= 1
                 updateAgeDisplay()
             }
         }
+
         binding.btnCalculate.setOnClickListener {
+            it.startAnimation(scaleAnimation)
             val result = calculateIMC()
             navigateToResultScreen(result)
         }

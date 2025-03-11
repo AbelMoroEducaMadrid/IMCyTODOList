@@ -1,8 +1,7 @@
 package com.ventura.imcytodolist.imc
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.view.animation.AnimationUtils
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,80 +11,77 @@ import com.ventura.imcytodolist.R
 import com.ventura.imcytodolist.databinding.ActivityResultImcBinding
 
 class ResultIMC : AppCompatActivity() {
-    private lateinit var binding: ActivityResultImcBinding
 
-    private lateinit var tvResult: TextView
-    private lateinit var tvIMC: TextView
-    private lateinit var tvDescription: TextView
-    private lateinit var btnRecalculate: Button
+    private lateinit var binding: ActivityResultImcBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityResultImcBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val result: Double? = intent.extras?.getDouble("IMC_KEY")
+        val result = intent.extras?.getDouble("IMC_KEY") ?: 0.0
 
-        initComponents()
-        if (result != null) {
-            initUI(result)
-        }else {
-            initUI(0.0)
-        }
-        initListeners()
+        setupUI(result)
+        setupListeners()
+
+        val strongAnimation = AnimationUtils.loadAnimation(this, R.anim.strong_animation)
+        binding.ivResultImage.startAnimation(strongAnimation)
     }
 
-    private fun initComponents() {
-        tvIMC = binding.tvIMC
-        tvResult = binding.tvResult
-        tvDescription = binding.tvDescription
-        btnRecalculate = binding.btnRecalculate
-    }
-
-    private fun initUI(result: Double) {
-        tvIMC.text = result.toString()
+    private fun setupUI(result: Double) {
+        binding.tvIMC.text = result.toString()
 
         when (result) {
             in 0.00..18.50 -> {
-                tvResult.text = getString(R.string.title_bajo_peso)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_bajo))
-                tvDescription.text = getString(R.string.description_bajo_peso)
+                binding.tvResult.text = getString(R.string.title_bajo_peso)
+                binding.tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_bajo))
+                binding.tvDescription.text = getString(R.string.description_bajo_peso)
+                binding.ivResultImage.setImageResource(R.drawable.delgado)
             }
 
             in 18.51..24.99 -> {
-                tvResult.text = getString(R.string.title_peso_normal)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_normal))
-                tvDescription.text = getString(R.string.description_peso_normal)
+                binding.tvResult.text = getString(R.string.title_peso_normal)
+                binding.tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_normal))
+                binding.tvDescription.text = getString(R.string.description_peso_normal)
+                binding.ivResultImage.setImageResource(R.drawable.normal)
             }
 
             in 25.00..29.99 -> {
-                tvResult.text = getString(R.string.title_sobrepeso)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_sobrepeso))
-                tvDescription.text = getString(R.string.description_sobrepeso)
+                binding.tvResult.text = getString(R.string.title_sobrepeso)
+                binding.tvResult.setTextColor(ContextCompat.getColor(this, R.color.peso_sobrepeso))
+                binding.tvDescription.text = getString(R.string.description_sobrepeso)
+                binding.ivResultImage.setImageResource(R.drawable.sobrepeso)
             }
 
             in 30.00..99.00 -> {
-                tvResult.text = getString(R.string.title_obesidad)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
-                tvDescription.text = getString(R.string.description_obesidad)
+                binding.tvResult.text = getString(R.string.title_obesidad)
+                binding.tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
+                binding.tvDescription.text = getString(R.string.description_obesidad)
+                binding.ivResultImage.setImageResource(R.drawable.obesidad)
             }
 
             else -> {
-                tvIMC.text = getString(R.string.error)
-                tvResult.text = getString(R.string.error)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
-                tvDescription.text = getString(R.string.error)
+                binding.tvIMC.text = getString(R.string.error)
+                binding.tvResult.text = getString(R.string.error)
+                binding.tvResult.setTextColor(ContextCompat.getColor(this, R.color.obesidad))
+                binding.tvDescription.text = getString(R.string.error)
+                binding.ivResultImage.setImageResource(R.drawable.logoimc)
             }
         }
     }
 
-    private fun initListeners() {
-        btnRecalculate.setOnClickListener { onBackPressed() }
+    private fun setupListeners() {
+        binding.btnRecalculate.setOnClickListener {
+            val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_anim)
+            it.startAnimation(scaleAnimation)
+            onBackPressed()
+        }
     }
 }
