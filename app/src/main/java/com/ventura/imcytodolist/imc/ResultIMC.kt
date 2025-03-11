@@ -1,5 +1,6 @@
 package com.ventura.imcytodolist.imc
 
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.activity.enableEdgeToEdge
@@ -54,7 +55,8 @@ class ResultIMC : AppCompatActivity() {
      * @param result El valor del IMC a clasificar y mostrar.
      */
     private fun setupUI(result: Double) {
-        binding.tvIMC.text = result.toString() // Muestra el valor del IMC
+        val decimalFormat = DecimalFormat("#.##")
+        binding.tvIMC.text = decimalFormat.format(result)
 
         // Clasifica el IMC y ajusta la UI según el rango
         when (result) {

@@ -58,7 +58,8 @@ class IMCCalculator : AppCompatActivity() {
      * Incluye animaciones para mejorar la experiencia del usuario.
      */
     private fun setupListeners() {
-        val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_anim) // Carga animación de escala
+        val scaleAnimation =
+            AnimationUtils.loadAnimation(this, R.anim.scale_anim) // Carga animación de escala
 
         // Listener para el botón de selección de género masculino
         binding.viewMale.setOnClickListener {
@@ -76,8 +77,7 @@ class IMCCalculator : AppCompatActivity() {
 
         // Listener para el slider de altura
         binding.rsHeight.addOnChangeListener { _, value, _ ->
-            val decimalFormat = DecimalFormat("#.##") // Formato para evitar decimales innecesarios
-            currentHeight = decimalFormat.format(value).toInt() // Actualiza altura
+            currentHeight = value.toInt() // Actualiza altura
             binding.tvHeight.text = "$currentHeight cm" // Muestra la altura en la UI
         }
 
@@ -124,13 +124,12 @@ class IMCCalculator : AppCompatActivity() {
     /**
      * Calcula el Índice de Masa Corporal (IMC) usando la fórmula: peso / (altura^2).
      *
-     * @return El valor del IMC redondeado a dos decimales.
+     * @return El valor del IMC.
      */
     private fun calculateIMC(): Double {
-        val decimalFormat = DecimalFormat("#.##")
-        val heightInMeters = currentHeight.toDouble() / 100 // Convierte cm a metros
-        val imc = currentWeight / (heightInMeters * heightInMeters) // Fórmula del IMC
-        return decimalFormat.format(imc).toDouble() // Devuelve el IMC formateado
+        val heightInMeters = currentHeight.toDouble() / 100
+        val imc = currentWeight / (heightInMeters * heightInMeters)
+        return imc
     }
 
     /**
@@ -218,7 +217,8 @@ class IMCCalculator : AppCompatActivity() {
      * @param result El valor del IMC a mostrar en la siguiente pantalla.
      */
     private fun navigateToResultScreen(result: Double) {
-        val intent = Intent(this, ResultIMC::class.java) // Crea un Intent para la pantalla de resultados
+        val intent =
+            Intent(this, ResultIMC::class.java) // Crea un Intent para la pantalla de resultados
         intent.putExtra("IMC_KEY", result) // Pasa el IMC como extra
         startActivity(intent) // Inicia la nueva actividad
     }
