@@ -26,9 +26,6 @@ class TasksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             TaskCategory.Trabajo -> R.color.lista_trabajo_category
             TaskCategory.Otros -> R.color.lista_otros_category
             TaskCategory.Personal -> R.color.lista_personal_category
-            TaskCategory.Estudio -> R.color.lista_estudio_category
-            TaskCategory.Hogar -> R.color.lista_hogar_category
-            TaskCategory.Salud -> R.color.lista_salud_category
         }
         cbTask.buttonTintList = ColorStateList.valueOf(
             ContextCompat.getColor(cbTask.context, color)

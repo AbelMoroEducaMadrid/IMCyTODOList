@@ -15,6 +15,9 @@ class CategoriesAdapter(private val categories: List<TaskCategory>, private val 
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         holder.render(categories[position])
+        holder.itemView.setOnClickListener {
+            onItemSelected(position) // Notificar que se ha seleccionado una categoría
+        }
     }
 
     override fun getItemCount() = categories.size

@@ -22,20 +22,34 @@ class ToDoList : AppCompatActivity() {
     private val categories = listOf(
         TaskCategory.Personal,
         TaskCategory.Trabajo,
-        TaskCategory.Otros,
-        TaskCategory.Estudio,
-        TaskCategory.Hogar,
-        TaskCategory.Salud
+        TaskCategory.Otros
     )
 
     private val tasks = mutableListOf(
-        Task("Estudiar para el examen", TaskCategory.Estudio),
-        Task("Limpiar la casa", TaskCategory.Hogar),
-        Task("Hacer ejercicio", TaskCategory.Salud),
+        // Tareas personales
         Task("Revisar correos", TaskCategory.Trabajo),
         Task("Llamar a un amigo", TaskCategory.Personal),
-        Task("Comprar víveres", TaskCategory.Hogar)
+        Task("Hacer ejercicio", TaskCategory.Personal),
+        Task("Leer un libro", TaskCategory.Personal),
+        Task("Meditar 10 minutos", TaskCategory.Personal),
+        Task("Salir a caminar", TaskCategory.Personal),
+        Task("Aprender una nueva receta", TaskCategory.Personal),
+
+        // Tareas de trabajo
+        Task("Redactar informe mensual", TaskCategory.Trabajo),
+        Task("Preparar presentación para la reunión", TaskCategory.Trabajo),
+        Task("Actualizar la base de datos", TaskCategory.Trabajo),
+        Task("Revisar código en pull requests", TaskCategory.Trabajo),
+        Task("Responder mensajes pendientes", TaskCategory.Trabajo),
+
+        // Otras tareas
+        Task("Comprar un regalo", TaskCategory.Otros),
+        Task("Investigar sobre un nuevo hobby", TaskCategory.Otros),
+        Task("Organizar archivos", TaskCategory.Otros),
+        Task("Limpiar el escritorio", TaskCategory.Otros),
+        Task("Ver un documental interesante", TaskCategory.Otros)
     )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,9 +98,6 @@ class ToDoList : AppCompatActivity() {
                     val currentCategory: TaskCategory = when (selectedRadioButton.text) {
                         getString(R.string.lista_dialog_category_trabajo) -> TaskCategory.Trabajo
                         getString(R.string.lista_dialog_category_personal) -> TaskCategory.Personal
-                        getString(R.string.lista_dialog_category_estudio) -> TaskCategory.Estudio
-                        getString(R.string.lista_dialog_category_hogar) -> TaskCategory.Hogar
-                        getString(R.string.lista_dialog_category_salud) -> TaskCategory.Salud
                         else -> TaskCategory.Otros
                     }
 
@@ -101,8 +112,22 @@ class ToDoList : AppCompatActivity() {
     }
 
     private fun updateCategories(position: Int) {
-        categories[position].isSelected = !categories[position].isSelected
-        categoriesAdapter.notifyItemChanged(position)
+        val selectedCategory = categories[position]
+
+        // Si la categoría ya está seleccionada, la deseleccionamos
+        if (selectedCategory.isSelected) {
+            selectedCategory.isSelected = false
+        } else {
+            // Si no está seleccionada, deseleccionamos todas las categorías primero
+            categories.forEach { it.isSelected = false }
+            // Luego seleccionamos la categoría actual
+            selectedCategory.isSelected = true
+        }
+
+        // Notificar al adaptador que los datos han cambiado
+        categoriesAdapter.notifyDataSetChanged()
+
+        // Actualizar la lista de tareas según la categoría seleccionada (o ninguna)
         updateTasks()
     }
 
@@ -112,9 +137,12 @@ class ToDoList : AppCompatActivity() {
     }
 
     private fun updateTasks() {
-        val selectedCategories = categories.filter { it.isSelected }
-        val newTasks = if (selectedCategories.isEmpty()) tasks else tasks.filter {
-            selectedCategories.contains(it.category)
+        val selectedCategory = categories.find { it.isSelected } // Busca la categoría seleccionada
+
+        val newTasks = if (selectedCategory == null) {
+            tasks // Si no hay categoría seleccionada, mostrar todas las tareas
+        } else {
+            tasks.filter { it.category == selectedCategory } // Filtrar por la categoría seleccionada
         }
 
         tasksAdapter.tasks = newTasks.toMutableList()

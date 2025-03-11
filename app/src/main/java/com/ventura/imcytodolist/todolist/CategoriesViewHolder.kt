@@ -32,24 +32,6 @@ class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     ContextCompat.getColor(divider.context, R.color.lista_personal_category)
                 )
             }
-            TaskCategory.Estudio -> {
-                tvCategoryName.text = "Estudio"
-                divider.setBackgroundColor(
-                    ContextCompat.getColor(divider.context, R.color.lista_estudio_category)
-                )
-            }
-            TaskCategory.Hogar -> {
-                tvCategoryName.text = "Hogar"
-                divider.setBackgroundColor(
-                    ContextCompat.getColor(divider.context, R.color.lista_hogar_category)
-                )
-            }
-            TaskCategory.Salud -> {
-                tvCategoryName.text = "Salud"
-                divider.setBackgroundColor(
-                    ContextCompat.getColor(divider.context, R.color.lista_salud_category)
-                )
-            }
         }
 
         val color =if (taskCategory.isSelected) {
