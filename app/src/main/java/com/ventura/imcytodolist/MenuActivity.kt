@@ -2,6 +2,7 @@ package com.ventura.imcytodolist
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -51,16 +52,16 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent) // Inicia la actividad de la lista de tareas
         }
 
-        // Listener para abrir otra aplicación externa
+        // Listener para abrir MainActivity de com.example.appfinalprimeraeva
         binding.buttonOpenOtherApp.setOnClickListener {
-            // Intenta obtener el Intent de lanzamiento para el paquete de otra aplicación
-            val intent = packageManager.getLaunchIntentForPackage("com.otra.app")
+            // Intenta obtener el Intent de lanzamiento para el paquete de la otra aplicación
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.setClassName("com.example.appfinalprimeraeva", "com.example.appfinalprimeraeva.MainActivity")
             if (intent != null) {
-                startActivity(intent) // Si la aplicación existe, la abre
+                startActivity(intent) // Si la aplicación existe y tiene una actividad de lanzamiento, la abre
             } else {
-                // Maneja el caso en que la aplicación no esté instalada
-                // TODO: Podrías agregar un Toast o Snackbar aquí para informar al usuario
-                // Ejemplo: Toast.makeText(this, "Aplicación no encontrada", Toast.LENGTH_SHORT).show()
+                // Maneja el caso en que la aplicación no esté instalada o no tenga una actividad de lanzamiento
+                Toast.makeText(this, "Aplicación no encontrada", Toast.LENGTH_SHORT).show()
             }
         }
 
