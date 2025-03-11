@@ -25,14 +25,29 @@ class MenuActivity : AppCompatActivity() {
             insets
         }
 
-        binding.buttonToDoList.setOnClickListener {
+        binding.cardImcCalculator.setOnClickListener {
+            val intent = Intent(this, IMCCalculator::class.java)
+            startActivity(intent)
+        }
+
+        binding.cardToDoList.setOnClickListener {
             val intent = Intent(this, ToDoList::class.java)
             startActivity(intent)
         }
 
-        binding.buttonImcCalculator.setOnClickListener {
-            val intent = Intent(this, IMCCalculator::class.java)
-            startActivity(intent)
+        binding.buttonOpenOtherApp.setOnClickListener {
+            // Cambia "com.otra.app" por el paquete de la otra aplicación
+            val intent = packageManager.getLaunchIntentForPackage("com.otra.app")
+            if (intent != null) {
+                startActivity(intent)
+            } else {
+                // Manejar el caso en que la aplicación no esté instalada
+                // Puedes mostrar un Toast o un Snackbar
+            }
+        }
+
+        binding.buttonExit.setOnClickListener {
+            finishAffinity() // Cierra la aplicación y toda la pila de actividades
         }
     }
 }

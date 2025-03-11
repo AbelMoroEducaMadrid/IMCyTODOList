@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="250dp"
     android:layout_height="wrap_content"
-    android:background="@color/lista_background_lista_app"
+    android:background="@color/card_background"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -10,10 +10,10 @@
         android:id="@+id/etTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/black"
         android:hint="@string/lista_dialog_add_task"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris" />
 
     <RadioGroup
         android:id="@+id/rgCategories"
@@ -27,7 +27,7 @@
             android:buttonTint="@color/lista_trabajo_category"
             android:checked="true"
             android:text="@string/lista_dialog_category_trabajo"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <RadioButton
             android:id="@+id/rbPersonal"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/lista_personal_category"
             android:text="@string/lista_dialog_category_personal"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <RadioButton
             android:id="@+id/rbOtros"
@@ -43,13 +43,13 @@
             android:layout_height="wrap_content"
             android:buttonTint="@color/lista_otros_category"
             android:text="@string/lista_dialog_category_otros"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btnAddTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/lista_accent"
+        android:backgroundTint="@color/primary"
         android:text="@string/lista_dialog_add_task_button" />
 </LinearLayout>

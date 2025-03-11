@@ -24,7 +24,7 @@
     <string name="error">Error</string>
     <string name="description_error">Ha ocurrido un error al calcular tu IMC. Por favor, verifica los datos ingresados y vuelve a intentarlo. Si el problema persiste, contacta al soporte técnico.</string>
 
-    <string name="lista_title">Prueba Listas</string>
+    <string name="lista_title">MIS TAREAS</string>
     <string name="lista_categories">Categorías:</string>
     <string name="lista_tasks">Tareas:</string>
     <string name="lista_dialog_add_task">Añade la tarea</string>
@@ -35,4 +35,10 @@
     <string name="lista_dialog_category_estudio">Estudio</string>
     <string name="lista_dialog_category_hogar">Hogar</string>
     <string name="lista_dialog_category_salud">Salud</string>
+    <string name="app_fin_de_curso">App Fin de Curso</string>
+    <string name="abel_moro_2_dam">Abel Moro - 2º DAM</string>
+    <string name="calculadora_de_imc">Calculadora de IMC</string>
+    <string name="lista_de_tareas">Lista de tareas</string>
+    <string name="abrir_la_otra_app">Abrir la otra app</string>
+    <string name="salir">Salir</string>
 </resources>

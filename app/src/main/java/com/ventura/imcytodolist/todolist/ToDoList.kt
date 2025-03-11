@@ -50,7 +50,6 @@ class ToDoList : AppCompatActivity() {
         Task("Ver un documental interesante", TaskCategory.Otros)
     )
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_do_list)
@@ -71,7 +70,7 @@ class ToDoList : AppCompatActivity() {
         rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
-        tasksAdapter = TasksAdapter(tasks) { position -> onItemSelected(position) }
+        tasksAdapter = TasksAdapter(tasks, { position -> onTaskSelected(position) }, { position -> onTaskDeleted(position) })
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
     }
@@ -131,8 +130,14 @@ class ToDoList : AppCompatActivity() {
         updateTasks()
     }
 
-    private fun onItemSelected(position: Int) {
+    private fun onTaskSelected(position: Int) {
         tasks[position].isSelected = !tasks[position].isSelected
+        updateTasks()
+    }
+
+    private fun onTaskDeleted(position: Int) {
+        tasks.removeAt(position)
+        tasksAdapter.notifyItemRemoved(position)
         updateTasks()
     }
 

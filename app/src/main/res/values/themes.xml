@@ -24,7 +24,7 @@
 
     <style name="ListaSubtitle">
         <item name="textAllCaps">true</item>
-        <item name="android:textColor">@color/lista_subtitle_text</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginHorizontal">32dp</item>
     </style>
 </resources>
