@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
+    <!-- Fondo animado -->
+    <com.ventura.imcytodolist.AnimatedDotsBackground
+        android:id="@+id/animatedBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Título de la actividad -->
     <TextView
         android:id="@+id/title_text"
@@ -27,14 +37,14 @@
         android:id="@+id/subtitle_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/abel_moro_2_dam"
-        android:textSize="16sp"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/title_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/title_text" />
 
     <!-- Cadena vertical para distribuir los elementos -->
     <androidx.cardview.widget.CardView
@@ -44,11 +54,11 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/subtitle_text"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintVertical_chainStyle="spread">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitle_text"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintWidth_percent="0.8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -61,22 +71,22 @@
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logoimc"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_imc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/calculadora_de_imc"
-                android:textSize="18sp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                app:layout_constraintTop_toBottomOf="@id/image_imc"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_imc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -87,10 +97,10 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/card_imc_calculator"
         app:layout_constraintBottom_toTopOf="@id/button_open_other_app"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_imc_calculator"
         app:layout_constraintWidth_percent="0.8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,22 +114,22 @@
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/todo_list_icon"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_todo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@string/lista_de_tareas"
-                android:textSize="18sp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                app:layout_constraintTop_toBottomOf="@id/image_todo"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_todo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -128,29 +138,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/abrir_la_otra_app"
         android:backgroundTint="@color/exito"
+        android:text="@string/abrir_la_otra_app"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/card_to_do_list"
         app:layout_constraintBottom_toTopOf="@id/button_exit"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_to_do_list"
+        app:layout_constraintWidth_percent="0.8" />
 
     <Button
         android:id="@+id/button_exit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/salir"
         android:backgroundTint="@color/error"
+        android:text="@string/salir"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/button_open_other_app"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.8"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_open_other_app"
+        app:layout_constraintWidth_percent="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
